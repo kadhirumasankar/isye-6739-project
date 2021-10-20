@@ -11,14 +11,14 @@ class Player:
         self.coins = coins
 
 
-player_A = Player("A", 4)
-player_B = Player("B", 4)
-pot = Player("pot", 2)
 
 if __name__ == "__main__":
     cycle_list = []
     num_trials = 100
     for _ in range(num_trials):
+        player_A = Player("A", 4)
+        player_B = Player("B", 4)
+        pot = Player("pot", 2)
         counter = 0
         while True:
             if counter % 2 == 0:
