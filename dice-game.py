@@ -3,6 +3,7 @@ import random
 import statistics
 
 import matplotlib.pyplot as plt
+from tqdm import tqdm
 
 
 class Player:
@@ -14,8 +15,8 @@ class Player:
 
 if __name__ == "__main__":
     cycle_list = []
-    num_trials = 100
-    for _ in range(num_trials):
+    num_trials = 1000000
+    for _ in tqdm(range(num_trials)):
         player_A = Player("A", 4)
         player_B = Player("B", 4)
         pot = Player("pot", 2)
