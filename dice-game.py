@@ -27,13 +27,13 @@ def print_ascii_hist():
         plot_hist(
             cycle_list, pch=".", bincount=math.ceil((max(cycle_list) - min(cycle_list)))
         )
-        print(f"µ = {mu_list[-1]}")
+        # print(f"µ = {mu_list[-1]}")
 
 
 if __name__ == "__main__":
     cycle_list = []
     mu_list = []
-    num_trials = 10000
+    num_trials = 100000
     for i in range(num_trials):
         player_A = Player("A", 4)
         player_B = Player("B", 4)
@@ -65,19 +65,16 @@ if __name__ == "__main__":
                 pot.coins += 1
                 # print(f"{current_player.id} rolled {num} and put one coin in the pot. {current_player.id} has {current_player.coins} coins")
             counter = counter + 1
-        mu_list.append(statistics.mean(cycle_list))
-        if (i + 1) % 100 == 0:
+        # mu_list.append(statistics.mean(cycle_list))
+        if (i + 1) % 2000 == 0:
             subprocess.run(["clear", "-x"])
             print_ascii_hist()
             print(
                 f"{i+1} of {num_trials} runs complete ({math.ceil(i/num_trials * 100)}%)"
             )
 
-    plt.subplot(211)
     plt.hist(cycle_list, bins=math.ceil((max(cycle_list) - min(cycle_list))))
     plt.xlabel("Cycles")
     plt.ylabel("Frequency")
-    plt.title(f"{statistics.mean(cycle_list)}")
-    plt.subplot(212)
-    plt.scatter(range(1, len(mu_list) + 1), mu_list, marker=".", linewidths=1)
+    plt.title(f"µ = {statistics.mean(cycle_list)}")
     plt.show()
