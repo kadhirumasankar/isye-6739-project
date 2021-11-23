@@ -1,0 +1,27 @@
+===============================
+=========Final Project=========
+===============================
+[ ] PDF of final project report
+	[ ] 7 text pages
+	[ ] Title and group member names
+	[ ] Abstract (200 words of what problem you're working on and major findings)
+	[ ] Background and description of problem: Some detail of the problem, along with a description of the organization of what’s coming up in the remainder of the write-up
+	[ ] Main findings
+		[ ] Describe the problem at hand, and maybe provide a small literature review, if available
+		[ ] If you use simulation, develop and document your code. Anything from Excel to Matlab to Python is fine.  Show how to run your program(s).
+		[ ] Give illustrations of what you can learn from your work (e.g., whether or not a certain strategy will work better than others in blackjack).  Make sure to be statistically rigorous if you’re carrying out simulation experiments.
+	[ ] Conclusions
+	[ ] Appendix with miscellaneous tables, figures, code not absolutely required for main text
+	
+	
+[ ] ZIP file with:
+	[ ] Code
+	[ ] README
+	
+Figure code:
+\begin{figure}[H]
+\centering
+\includegraphics[width=.75\textwidth]{KcVSa0.png}
+\caption{Plot of the critical stress intensity factor v.s. initial crack length for all specimens}
+\label{fig:KcVSa0}
+\end{figure}

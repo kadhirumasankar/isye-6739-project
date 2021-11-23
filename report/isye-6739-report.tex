@@ -1,0 +1,49 @@
+\documentclass[12pt]{report}
+\usepackage{fullpage}
+\usepackage{indentfirst}
+\usepackage{verbatim}
+\usepackage{gensymb}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage{float}
+\usepackage{subcaption}
+\usepackage[title]{appendix}
+\usepackage{listings}
+\captionsetup{font=footnotesize}
+\usepackage[cache=false]{minted}
+\usepackage{multirow}
+
+\theoremstyle{definition}
+\newtheorem{exmp}{Example}[section]
+\newcommand{\degrees}{\degree C }
+
+\author{ISYE-6739 - Statistical Methods \\\\ Kadhir Umasankar}
+\title{Coins in a Pot}
+\date{December 7th, 2021}
+\renewcommand\thesection{\arabic{section}}
+
+\begin{document}
+\maketitle
+
+\input{src/abstract.tex}
+
+\input{src/intro.tex}
+
+\input{src/experimental_procedures.tex}
+
+%\input{src/data_analysis.tex}
+
+\input{src/results.tex}
+
+\input{src/conclusions.tex}
+
+\appendix
+\chapter{Python Code}
+%{\large Python Code:}
+\inputminted{python}{../dice-game.py}
+TODO it overflows
+
+\end{document}
+

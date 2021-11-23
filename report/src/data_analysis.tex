@@ -1,0 +1,39 @@
+\section{Data Analysis}
+
+The data were imported into MATLAB for processing. First, the critical stress intensity factor was calculated using Equation \ref{eq:Kcrit}, where $P_{max}$ is the maximum load felt by each specimen, $b$ is the thickness of the specimen, $W$ is its width, $a$ is the length of the crack, and function $f$ can be seen in Equation \ref{eq:functionF}. This information was also used to produce the plot of the critical stress intensity factor for different initial crack lengths, and then the plot of the mean critical stress intensity factor for specimens of different thickness.
+
+\begin{equation} \label{eq:Kcrit}
+K_C = \frac{P_{max}}{b\sqrt{W}}f(\frac{a}{W})
+\end{equation}
+
+\begin{equation} \label{eq:functionF}
+f(x) = 29.6x^{1/2} - 185.5x^{3/2} + 655.7x^{5/2} - 1017x^{7/2} + 639x^{9/2}
+\end{equation}
+
+\begin{exmp}
+$$f(\frac{0.89}{2}) = 29.6\cdot (\frac{0.89}{2})^{1/2} - 185.5\cdot (\frac{0.89}{2})^{3/2} + 655.7\cdot (\frac{0.89}{2})^{5/2} - 1017\cdot (\frac{0.89}{2})^{7/2} + 639\cdot (\frac{0.89}{2})^{9/2} = 8.2291$$
+$$P_{max} = 3262.2992 \text{ lb}; b = 0.5 \text{ in}; W = 2 \text{ in}$$
+$$K_C = \frac{3262.2992}{0.5\sqrt{2}}\cdot 8.2291 = 37965.8244$$
+\end{exmp}
+
+The fracture toughness of a material approaches the plane-strain fracture toughness, $K_{IC}$. Equation \ref{eq:ASTM} shows an ASTM specification, where $\sigma_{ys}$ is the yield strength of the material, and if this condition is satisfied, the $K_C$ determined in the test is the plane strain fracture toughness, $K_{IC}$.
+
+\begin{equation} \label{eq:ASTM}
+a, b >= 2.5(\frac{K_C}{\sigma_{ys}})^2
+\end{equation}
+
+\begin{exmp}
+$$K_C = 37965.8244; \sigma_{ys} = 57000 \text{psi}$$
+$$2.5(\frac{37965.8244}{57000} = 1.1091$$
+\end{exmp}
+
+For each specimen, the compliance, which can be seen in Equation \ref{eq:compliance}, where $\Delta$ is the displacement and $P$ is the load, was found by finding the slope of the linear portion of the load vs. displacement plots.
+
+\begin{equation} \label{eq:compliance}
+C = \frac{\Delta}{P}
+\end{equation}
+
+\begin{exmp}
+$$\Delta = (0.04014 - 0.02554) \text{in}; P = (650.5 - 207) \text{lb}$$
+$$C = \frac{0.04014 - 0.02554}{650.5-207} = 3.2919e-05$$
+\end{exmp}

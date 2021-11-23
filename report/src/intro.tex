@@ -1,0 +1,25 @@
+\section{Introduction}
+
+Analysis of games can be done by running many simulations. Code must be written to convert the problem at hand into a simulation that the computer can run, and statistics of interest can be recorded over many runs. By running thousands of such simulations, the estimations of statistics will begin to converge to the parameters' actual values.
+
+In this report, analysis of the "Coins in a Pot" game will be described. In this game, the two players and pot start with a certain number of coins. The players take turns rolling a die, and they perform one of the following actions based on the number they rolled:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|l|}
+\hline
+\textbf{Number on Die} & \multicolumn{1}{c|}{\textbf{Action}}                     \\ \hline
+1                      & Player does nothing                                      \\ \hline
+2                      & Player takes all coins in the pot                        \\ \hline
+3                      & Player takes half of the coins in the pot (rounded down) \\ \hline
+4, 5, 6                & Player puts a coin in the pot                            \\ \hline
+\end{tabular}
+%\caption{Table of critical stress intensity factors ($K_C$) for different initial crack lengths ($a_0$)}
+%\label{table:Dice}
+\end{table}
+
+The game ends when a player has no coins left and must put a coin in the point. The number of cycles that the game lasts must be recorded, and its expected value and distribution are to be found.
+
+Following these rules, some Python code was written. The number of cycles that were played until a player ran out of coins was recorded in a list, and this process was repeated many times. The expected value of the number of cycles will be found, and the distribution of the number of cycles will be plotted.
+
+TODO: What's coming in the rest of the report (along with "this will be talked about in this section")
