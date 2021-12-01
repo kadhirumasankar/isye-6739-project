@@ -1,3 +1,4 @@
+import csv
 import math
 import random
 import statistics
@@ -65,7 +66,6 @@ if __name__ == "__main__":
                 pot.coins += 1
                 # print(f"{current_player.id} rolled {num} and put one coin in the pot. {current_player.id} has {current_player.coins} coins")
             counter = counter + 1
-        # mu_list.append(statistics.mean(cycle_list))
         if (i + 1) % 2000 == 0:
             subprocess.run(["clear", "-x"])
             print_ascii_hist()
@@ -73,8 +73,14 @@ if __name__ == "__main__":
                 f"{i+1} of {num_trials} runs complete ({math.ceil(i/num_trials * 100)}%)"
             )
 
+    file = open("cycle_list.csv", "w+", newline="")
+    with file:
+        write = csv.writer(file)
+        write.writerow([str(r) for r in cycle_list])
+
     plt.hist(cycle_list, bins=math.ceil((max(cycle_list) - min(cycle_list))))
     plt.xlabel("Cycles")
     plt.ylabel("Frequency")
-    plt.title(f"µ = {statistics.mean(cycle_list)}")
+    plt.title(f"Distribution of Cycles (µ = {statistics.mean(cycle_list)})")
+    plt.grid(True, axis="y", alpha=0.5)
     plt.show()
