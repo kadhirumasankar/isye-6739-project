@@ -14,6 +14,8 @@ conda activate isye-6739-project
 python3 dice-game.py
 ```
 
+`scatter_plot.m` contains some code that was used to plot the mean of the distribution over time. It is a supplementary script which you are not required to run.
+
 ## Uninstalling the environment
 
 To uninstall the environment, run the following:
