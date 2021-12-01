@@ -1,39 +1,56 @@
-\section{Data Analysis}
+\section{Results and Discussion}
+\label{results}
 
-The data were imported into MATLAB for processing. First, the critical stress intensity factor was calculated using Equation \ref{eq:Kcrit}, where $P_{max}$ is the maximum load felt by each specimen, $b$ is the thickness of the specimen, $W$ is its width, $a$ is the length of the crack, and function $f$ can be seen in Equation \ref{eq:functionF}. This information was also used to produce the plot of the critical stress intensity factor for different initial crack lengths, and then the plot of the mean critical stress intensity factor for specimens of different thickness.
+Plots of the distribution of cycles after simulating 10, 100, 1,000, and 10,000 games can be seen in Figures \ref{fig:10} through \ref{fig:10000}. A plot of the distribution of cycles after simulating 1,000,000 games can be seen in Figure \ref{fig:1000000}.
 
-\begin{equation} \label{eq:Kcrit}
-K_C = \frac{P_{max}}{b\sqrt{W}}f(\frac{a}{W})
-\end{equation}
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{10.png}
+  \caption{10 games}
+  \label{fig:10}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{100.png}
+  \caption{100 games}
+\end{subfigure}
+\caption{Plots of the distribution of cycles after simulating various numbers of games}
+\label{fig:dist}
+\end{figure}
 
-\begin{equation} \label{eq:functionF}
-f(x) = 29.6x^{1/2} - 185.5x^{3/2} + 655.7x^{5/2} - 1017x^{7/2} + 639x^{9/2}
-\end{equation}
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{1000.png}
+  \caption{1000 games}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=\textwidth]{10000.png}
+  \caption{10000 games}
+  \label{fig:10000}
+\end{subfigure}
+\caption{Plots of the distribution of cycles after simulating various numbers of games}
+\label{fig:dist}
+\end{figure}
 
-\begin{exmp}
-$$f(\frac{0.89}{2}) = 29.6\cdot (\frac{0.89}{2})^{1/2} - 185.5\cdot (\frac{0.89}{2})^{3/2} + 655.7\cdot (\frac{0.89}{2})^{5/2} - 1017\cdot (\frac{0.89}{2})^{7/2} + 639\cdot (\frac{0.89}{2})^{9/2} = 8.2291$$
-$$P_{max} = 3262.2992 \text{ lb}; b = 0.5 \text{ in}; W = 2 \text{ in}$$
-$$K_C = \frac{3262.2992}{0.5\sqrt{2}}\cdot 8.2291 = 37965.8244$$
-\end{exmp}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.75\textwidth]{1000000.png}
+\caption{Plots of the distribution of cycles after simulating 1,000,000 games}
+\label{fig:1000000}
+\end{figure}
 
-The fracture toughness of a material approaches the plane-strain fracture toughness, $K_{IC}$. Equation \ref{eq:ASTM} shows an ASTM specification, where $\sigma_{ys}$ is the yield strength of the material, and if this condition is satisfied, the $K_C$ determined in the test is the plane strain fracture toughness, $K_{IC}$.
+It can be noted from these figures that the lowest number of cycles is 5 cycles. This is intuitive, since the players start with 4 coins, and would have to roll a 4, 5, or 6 five times in a row to lose the game in the least number of rolls. It can also be seen that the distribution of cycles becomes highly right-skewed as the number of games played increases. It is also worth noting that although the distribution looks like an exponential distribution, that is not so, as a property of the exponential distribution is that it is constantly decreasing, whereas it can be seen in Figure \ref{fig:1000000} that the frequency of `5 cycles' is lower than `6 cycles'.
 
-\begin{equation} \label{eq:ASTM}
-a, b >= 2.5(\frac{K_C}{\sigma_{ys}})^2
-\end{equation}
+To find the expected value of the distribution, the mean of the distribution of cycles was found. The movement of the mean over 1,000,000 games can be seen in Figure \ref{fig:mean}. It can be seen in this plot that the mean of the distribution eventually balances around 17.5603 cycles.
 
-\begin{exmp}
-$$K_C = 37965.8244; \sigma_{ys} = 57000 \text{psi}$$
-$$2.5(\frac{37965.8244}{57000} = 1.1091$$
-\end{exmp}
-
-For each specimen, the compliance, which can be seen in Equation \ref{eq:compliance}, where $\Delta$ is the displacement and $P$ is the load, was found by finding the slope of the linear portion of the load vs. displacement plots.
-
-\begin{equation} \label{eq:compliance}
-C = \frac{\Delta}{P}
-\end{equation}
-
-\begin{exmp}
-$$\Delta = (0.04014 - 0.02554) \text{in}; P = (650.5 - 207) \text{lb}$$
-$$C = \frac{0.04014 - 0.02554}{650.5-207} = 3.2919e-05$$
-\end{exmp}
+\begin{figure}[H]
+\centering
+\includegraphics[width=.75\textwidth]{mean.png}
+\caption{Mean of the distribution of cycles over 1,000,000 simulations}
+\label{fig:mean}
+\end{figure}

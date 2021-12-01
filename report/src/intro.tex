@@ -1,8 +1,12 @@
 \section{Introduction}
 
-Analysis of games can be done by running many simulations. Code must be written to convert the problem at hand into a simulation that the computer can run, and statistics of interest can be recorded over many runs. By running thousands of such simulations, the estimations of statistics will begin to converge to the parameters' actual values.
+Analysis of games can be done by running many simulations. Code must be written to convert the problem at hand into a simulation that the computer can run, and statistics of interest can be recorded over many runs. By running thousands of such simulations, the estimates will begin to converge to the parameters' actual values, following the Law of Large Numbers, which can be seen in Equation \ref{eq:LLN}. The Law of Large Numbers says that ``the average of the results obtained from a large number of trials should be close to the expected value and will tend to become closer to the expected value as more trials are performed"\footnote{\texttt{https://en.wikipedia.org/wiki/Law\_of\_large\_numbers}}.
 
-In this report, analysis of the "Coins in a Pot" game will be described. In this game, the two players and pot start with a certain number of coins. The players take turns rolling a die, and they perform one of the following actions based on the number they rolled:
+\begin{equation} \label{eq:LLN}
+\bar{X_n} = \frac{1}{n}(X_1 + ... + X_n); \bar{X_n} \rightarrow \mu \text{ as } n \rightarrow \infty
+\end{equation}
+
+In this report, analysis of the ``Coins in a Pot" game will be described. In this game, two players start with 4 coins each, and the pot starts with 2 coins. The players take turns rolling a die, and they perform one of the following actions based on the number they roll:
 
 \begin{table}[H]
 \centering
@@ -18,8 +22,6 @@ In this report, analysis of the "Coins in a Pot" game will be described. In this
 %\label{table:Dice}
 \end{table}
 
-The game ends when a player has no coins left and must put a coin in the point. The number of cycles that the game lasts must be recorded, and its expected value and distribution are to be found.
+The game ends when a player must put a coin in the pot but has no coins left. The number of cycles that the game lasts must be recorded, and its expected value and distribution are to be found.
 
-Following these rules, some Python code was written. The number of cycles that were played until a player ran out of coins was recorded in a list, and this process was repeated many times. The expected value of the number of cycles will be found, and the distribution of the number of cycles will be plotted.
-
-TODO: What's coming in the rest of the report (along with "this will be talked about in this section")
+Following these rules, some Python code was written to simulate the game. Section \ref{sim} of this report will discuss this code. The number of cycles that were played until a player ran out of coins was recorded in a list, and this process was repeated many times. The mean of the number of cycles will be found, and the distribution of the number of cycles will be plotted. Section \ref{results} will contain plots of the simulation, as well as a discussion of the results.
